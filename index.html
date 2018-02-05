@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tooltip-提示框/信息</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="box">
+       <div>
+       	<span>购物车商品信息</span>
+       	<button>删除</button>
+       </div>
+       <div>
+       	<span>购物车商品信息</span>
+       	<button>删除</button>
+       </div>
+       <div>
+       	<span>购物车商品信息</span>
+       	<button>删除</button>
+       </div>		
+	</div>
+
+	<div class="box">
+		<p>单价：<span>100</span></p>
+		<p>总价：<span></span></p>
+	</div>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/dialog.js"></script>
+	<script>
+       $("#box").on("click","button",function(){
+       	   var $parent=$(this).parent("div");
+       	   $.dialog({
+       	   	  msg:"确定要删除吗？",
+       	   	  btn:["删除","取消"],
+       	   	  callback1:function(){
+       	   	  	 console.log($(this).text())
+                 $parent.remove();
+       	   	  }
+       	   })
+       })
+	</script>
+</body>
+</html>
